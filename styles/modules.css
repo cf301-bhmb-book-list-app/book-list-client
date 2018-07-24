@@ -1,0 +1,38 @@
+/* Header Styles */
+header img {
+  max-height: 100%;
+}
+
+header h1 {
+  display: inline-block;
+  margin-left: 25px;
+  text-transform: lowercase;
+  color: #ddd;
+  font-size: 26px;
+  vertical-align: middle;
+}
+
+/* Book API Output */
+.book-image {
+  position: absolute;
+  width: 100%;
+  background-color: #bbb;
+}
+
+.book-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.book-title {
+  font-size: 22px;
+  text-transform: lowercase;
+  color: #ddd;
+}
+
+.book-author {
+  font-size: 16px;
+  text-transform: lowercase;
+  color: #ddd;
+}

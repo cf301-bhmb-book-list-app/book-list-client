@@ -5,8 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Book List App</title>
+
+  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/modules.css">
+
+  <!-- Template -->
+  <script>
+    <img src="{{image-file}}" alt="{{image-desc}}" id="bookImage" />
+    <div class="book-content" data-url="{{url}}" data-isbn="{{isbn}}">
+      <p class="book-title" id="bookTitle">{{title}}</p>
+      <p class="book-author" id="bookAuthor">{{author}}</p>
+    </div>
+  </script>
+
 </head>
 <body>
-  <h1>Hello World</h1>
+  <div class="mobile">
+    <header>
+      <img src="img/logo.png" alt="Shield Logo" class="logo">
+      <h1>Books App</h1>
+    </header>
+    
+    <main>
+      <div class="books">
+        <h1>My Books</h1>
+      </div>
+      
+      <div class="books-api" id="book">
+        <!-- Template -->
+        <img src="" alt="No Image" id="bookImage" />
+        <div class="book-content">
+          <p class="book-title" id="bookTitle">Title</p>
+          <p class="book-author" id="bookAuthor">Author</p>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <ul>
+        <li class="github"></li>
+        <li class="linkedin"></li>
+      </ul>
+    </footer>
+  </div>
+
+  <!-- scripts -->
+  <script src="scripts/app.js"></script>
 </body>
 </html>
