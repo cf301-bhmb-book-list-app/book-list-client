@@ -25,9 +25,9 @@ header {
   position: relative;
   display: flex;
   margin: 25px;
-  border: 2px solid green;
-  border-radius: 3px;
-  height: 80px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  height: 375px;
   margin-bottom: 50px;
 }
 
