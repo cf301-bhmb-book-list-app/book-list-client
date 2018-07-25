@@ -2,7 +2,7 @@
 
 // Application Dependencies
 const express = require('express');
-const cores = require('cors');
+const cors = require('cors');
 const pg = require('pg');
 
 // Application Setup
