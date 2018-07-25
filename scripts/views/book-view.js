@@ -14,6 +14,8 @@ var app = app || {};
         module.Book.all.map(book => $(`#book-list`)append(book.toHtml()));
     }
 
+    module.BookView = BookView;
+
 
 
 
@@ -21,3 +23,9 @@ var app = app || {};
 // ------------------
 //  end of IIFE
 })(app);
+
+// todo use Document ready in JQuery - to fetch all after loading 
+$(function(){
+    app.Book.fetchAll(app.BookView);
+
+})
