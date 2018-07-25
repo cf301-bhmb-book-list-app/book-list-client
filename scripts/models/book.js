@@ -24,6 +24,7 @@ b.title -a.title).map(book => new Book (book));
 
 // define static method to fetch all books from API 
 Book.fetchAll = callback =>
+// this is the connection on server.js
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
         .then(Book.loadAll)
         .then(callback)
