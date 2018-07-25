@@ -10,9 +10,13 @@ function Book(dataObject) {
 
 
 
+
+
+}
+// TODO define methos called toHtml- compiles handlebars-
+Book.prototype.toHtml = function () {
     
 }
-
 // ------------------
 //  end of IIFE
 })(app);
