@@ -1,6 +1,6 @@
 'use strict';
 
-let app = app || {};
+var app = app || {};
 
 (function (module) {
   function errorCallback(err) {
@@ -14,10 +14,9 @@ let app = app || {};
 
   // Defines a prototype method that renders the Handlebars template
   Book.prototype.toHtml = function() {
-    return app.render('#book-list-template', this);
+    return app.render('book-list-template', this);
   };
 
-  // TODO: Find out what this does :)
   Book.all = [];
   Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title)
     .map(book => new Book(book));
@@ -28,6 +27,10 @@ let app = app || {};
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
+
+  // -----------------------------------------------
+  // TODO: New function... (review 4:22)
+  // code...
 
   module.Book = Book;
 })(app);
