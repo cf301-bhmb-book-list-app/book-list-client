@@ -3,19 +3,19 @@
 var app = app || {};
 
 (function (module) {
-  const BookView = {};
+  const bookView = {};
 
-  // TODO: method on Bookview to initIndexPage
-  BookView.initIndexPage function () {
-    app.showOnly('book-view');
-    module.Book.all.map(book => $(`#book-list`).append(book.toHtml()));
-  }
+  // Append content to HTML via Handlebars template
+  bookView.initIndexPage = function () {
+    app.showOnly('#book');
+    module.Book.all.map(book => $(`#book`).append(book.toHtml()));
+  };
 
-  module.BookView = BookView;
+  module.bookView = bookView;
 
 })(app);
 
-// TODO: Use document ready in jQuery to fetch all after load
+// This is a document-ready function 
 $(function() {
-  app.Book.fetchAll(app.BookView);
+  app.Book.fetchAll(app.bookView.initIndexPage);
 })
