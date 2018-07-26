@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="styles/modules.css">
 
   <!-- Template -->
-  <script>
-    <img src="{{image-file}}" alt="{{image-desc}}" id="bookImage" />
+  <script id="book-list-template" type="text/x-handlebars-template">
+    <img src="{{image-file}}" alt="{{title}}" id="bookImage" />
     <div class="book-content" data-url="{{url}}" data-isbn="{{isbn}}">
       <p class="book-title" id="bookTitle">{{title}}</p>
       <p class="book-author" id="bookAuthor">{{author}}</p>
@@ -35,6 +35,9 @@
       <div class="books">
         <h1>My Books</h1>
       </div>
+      
+      <!-- SCRIPT -->
+      <div class="books-api" id="book"></div>
       
       <!-- Template -->
       <div class="books-api" id="book">
@@ -65,8 +68,8 @@
   <!-- scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
-  <script src="scripts/index.js"></script>
   <script src="scripts/controllers/routes.js"></script>
+  <script src="scripts/index.js"></script>
   <script src="scripts/models/book.js"></script>
   <script src="scripts/views/bookView.js"></script>
   <script src="scripts/views/errorView.js"></script>
