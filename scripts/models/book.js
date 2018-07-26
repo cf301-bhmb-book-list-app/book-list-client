@@ -1,38 +1,30 @@
 'use strict';
 
-var app = app || {}
-// -----------
-// start of IIFE 
-(function(module) {
-Book.all [];
+let app = app || {};
 
-// TODO - define book object method - iterate over the the object keys to assign key pairs
-function Book(dataObject) {
-    Object.keys(dataObject).forEach(key => [key] = dataObject[key]);
+(function (module) {
+  function errorCallback(err) {
+    console.error(err);
+    module.errorView.initErrorPage(err);
+  }
 
+  function Book(rawBookObj) {
+    Object.keys(rawBookObj).forEach(item => this[item] = rawBookObj[item]);
+  }
 
-}
-// TODO define methos called toHtml- compiles handlebars- at id #book-list-template
+  Book.prototype.toHtml = function() {
+    return app.render('#book-list-template', this);
+  };
 
-Book.prototype.toHtml = function () {
-    return app.render(#book-list-template, this)
-}
+  Book.all = [];
+  Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title)
+    .map(book => new Book(book));
 
-// define statice method to loadALL 
-Book.loadAll = rows => Book.all = rows.sort((a,b) => 
-b.title -a.title).map(book => new Book (book));
-
-// define static method to fetch all books from API 
-Book.fetchAll = callback =>
-// this is the connection on server.js
+  Book.fetchAll = callback =>
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
-        .then(Book.loadAll)
-        .then(callback)
-        .catch(errorCallback)
-        // need to add errorView
+      .then(Book.loadAll)
+      .then(callback)
+      .catch(errorCallback);
 
-module.Book = Book;
-
-// ------------------
-//  end of IIFE
+  module.Book = Book;
 })(app);
