@@ -1,6 +1,6 @@
 'use strict';
 
-var app = app || {};
+let app = app || {};
 
 (function (module) {
   const bookView = {};
@@ -15,7 +15,7 @@ var app = app || {};
 
 })(app);
 
-// This is a document-ready function 
+// EXECUTION CODE
 $(function() {
   app.Book.fetchAll(app.bookView.initIndexPage);
 })
