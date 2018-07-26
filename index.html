@@ -5,8 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Book List App</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/modules.css">
+
+  <!-- Template -->
+  <script id="book-list-template" type="text/x-handlebars-template">
+    <img src="{{image-file}}" alt="{{title}}" id="bookImage" />
+    <div class="book-content" data-url="{{url}}" data-isbn="{{isbn}}">
+      <p class="book-title" id="bookTitle">{{title}}</p>
+      <p class="book-author" id="bookAuthor">{{author}}</p>
+    </div>
+  </script>
+
 </head>
 <body>
-  <h1>Hello World</h1>
+  <div class="mobile">
+    <header>
+      <img src="img/logo.png" alt="Shield Logo" class="logo">
+      <h1>Books App</h1>
+    </header>
+    
+    <main>
+      <div class="books">
+        <h1>My Books</h1>
+      </div>
+      
+      <!-- SCRIPT -->
+      <div class="books-api" id="book"></div>
+      
+      <!-- Template -->
+      <div class="books-api" id="book">
+        <img src="" alt="No Image" id="bookImage" />
+        <div class="book-content">
+          <p class="book-title" id="bookTitle">Title1</p>
+          <p class="book-author" id="bookAuthor">Author1</p>
+        </div>
+      </div>
+      <!-- Template -->
+      <div class="books-api" id="book">
+        <img src="" alt="No Image" id="bookImage" />
+        <div class="book-content">
+           <p class="book-title" id="bookTitle">Title2</p>
+          <p class="book-author" id="bookAuthor">Author2</p>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <ul class="social">
+        <li><a href="https://www.github.com"><span class="fab fa-github"></span></a></li>
+        <li><a href="https://www.linkedin.com"><span class="fab fa-linkedin"></span></a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+  <script src="scripts/controllers/routes.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/models/book.js"></script>
+  <script src="scripts/views/bookView.js"></script>
+  <script src="scripts/views/errorView.js"></script>
 </body>
 </html>
