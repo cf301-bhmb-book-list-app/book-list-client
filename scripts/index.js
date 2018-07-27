@@ -1,6 +1,6 @@
 'use strict';
 
-let app = app || {};
+var app = app || {};
 
 (function (module) {
   // Set Production and LocalHost SERVER urls
@@ -15,10 +15,9 @@ let app = app || {};
     apiUrl: module.isProduction ? prodUrl : devUrl
   };
 
-  // Hide/show book
-  // TODO: WHY IS THIS HERE???
+  // SPA hide/show selector
   module.showOnly = (selector) => {
-    $('.container').hide();
+    $('.spa').hide();
     $(selector).show();
   };
 

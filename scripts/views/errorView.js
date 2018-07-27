@@ -1,17 +1,17 @@
 'use strict';
 
-let app = app || {};
+var app = app || {};
 
 (function (module) {
   const errorView = {};
 
-  // TODO: Review error page initialization in HTML, classnames, and error message template
+  // Set container to VISIBLE and append content to HTML via Handlebars template
   errorView.initErrorPage = err => {
-    app.showOnly('.error-view');
+    module.showOnly('.error-view');
     $('#error-message').empty();
-    $('#error-message').append(app.render('error-template', err));
+    $('#error-message').append(module.render('#error-template', err));
   };
 
-  // Assign errorView to app
+  // Append newly created object to 'app' as a property
   module.errorView = errorView;
 })(app);

@@ -1,16 +1,17 @@
 'use strict';
 
-let app = app || {};
+var app = app || {};
 
 (function (module) {
   const bookView = {};
 
-  // Append content to HTML via Handlebars template
+  // Set container to VISIBLE and append content to HTML via Handlebars template
   bookView.initIndexPage = function () {
-    app.showOnly('#book');
+    module.showOnly('.book-view');
     module.Book.all.map(book => $(`#book`).append(book.toHtml()));
   };
 
+  // Append newly created object to 'app' as a property
   module.bookView = bookView;
 
 })(app);
@@ -18,4 +19,4 @@ let app = app || {};
 // EXECUTION CODE
 $(function() {
   app.Book.fetchAll(app.bookView.initIndexPage);
-})
+});

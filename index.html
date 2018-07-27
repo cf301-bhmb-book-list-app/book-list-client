@@ -6,16 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Book List App</title>
 
-  <!-- Stylesheets -->
+  <!-- External CSS -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,600">
+
+  <!-- Internal CSS -->
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/modules.css">
+  <link rel="stylesheet" href="styles/modules/header.css">
+  <link rel="stylesheet" href="styles/modules/view-book.css">
+  <link rel="stylesheet" href="styles/modules/view-error.css">
+  <link rel="stylesheet" href="styles/modules/view-admin.css">
+  <link rel="stylesheet" href="styles/modules/view-search.css">
+  <link rel="stylesheet" href="styles/modules/footer.css">
 
-  <!-- Template -->
-  <script id="book-list-template" type="text/x-handlebars-template">
+  <!-- Book Template -->
+  <script type="text/x-handlebars-template" id="book-list-template">
     <img src="{{image-file}}" alt="{{title}}" id="bookImage" />
     <div class="book-content" data-url="{{url}}" data-isbn="{{isbn}}">
       <p class="book-title" id="bookTitle">{{title}}</p>
@@ -23,38 +30,99 @@
     </div>
   </script>
 
+  <!-- Error Template -->
+  <script type="text/x-handlebars-template" id="error-template">
+    <h3>Uh-oh. Something went wrong!</h3>
+    <p>{{status}}: {{statusText}}</p>
+  </script>
+
 </head>
 <body>
   <div class="mobile">
+    <!-- Header -->
     <header>
       <img src="img/logo.png" alt="Shield Logo" class="logo">
       <h1>Books App</h1>
+      <div class="icon-menu"><span class="fas fa-bars"></span></div>
+      <nav class="nav">
+        <ul>
+          <li><a href="/">home</a></li>
+          <li class="admin"><a href="/books/new">add book</a></li>
+          <li class="admin"><a href="/books/search">search g-books</a></li>
+          <li><a href="/admin">login</a></li>
+        </ul>
+      </nav>
     </header>
     
     <main>
-      <div class="books">
-        <h1>My Books</h1>
-      </div>
-      
-      <!-- SCRIPT -->
-      <div class="books-api" id="book"></div>
-      
-      <!-- Template -->
-      <div class="books-api" id="book">
-        <img src="" alt="No Image" id="bookImage" />
-        <div class="book-content">
-          <p class="book-title" id="bookTitle">Title1</p>
-          <p class="book-author" id="bookAuthor">Author1</p>
+      <!-- Book View -->
+      <section class="book-view spa">
+        <div class="books">
+          <h1>My Books</h1>
         </div>
-      </div>
-      <!-- Template -->
-      <div class="books-api" id="book">
-        <img src="" alt="No Image" id="bookImage" />
-        <div class="book-content">
-           <p class="book-title" id="bookTitle">Title2</p>
-          <p class="book-author" id="bookAuthor">Author2</p>
+        <div class="books-api" id="book"></div>
+      </section>
+
+      <!-- Error View -->
+      <section class="error-view spa">
+        <h1>There be an issue, cap'n</h1>
+        <div id="error-message"></div>
+      </section>
+    
+      <!-- Detail View -->
+
+      <!-- Search View -->
+      <section class="search-view spa">
+        <form id="search-form">
+          <input type="text" name="title" placeholder="title">
+          <input type="text" name="author" placeholder="author">
+          <input type="text" name="isbn" placeholder="isbn">
+          <button type="submit">search</button>
+        </form>
+        <div class="search-detail"></div>
+      </section>
+
+      <!-- Search Results -->
+      <section class="search-results spa">
+        <div>
+          <ul id="search-list"></ul>
         </div>
-      </div>
+      </section>
+
+      <!-- Create View -->
+      <section class="create-view spa">
+        <h2 class="view-title">add a new book</h2>
+        <form id="create-form">
+          <input type="text" name="title" placeholder="title">
+          <input type="text" name="author" placeholder="author">
+          <input type="text" name="isbn" placeholder="isbn">
+          <input type="text" name="image_url" placeholder="image_url">
+          <textarea name="description" placeholder="description" cols="30" rows="5"></textarea>
+          <button type="submit">submit</button>
+        </form>
+      </section>
+
+      <!-- Update View -->
+      <section class="update-view spa">
+        <h2 class="view-title">update a book</h2>
+        <form id="update-form">
+          <input type="text" name="title" placeholder="title">
+          <input type="text" name="author" placeholder="author">
+          <input type="text" name="isbn" placeholder="isbn">
+          <input type="text" name="image_url" placeholder="image_url">
+          <textarea name="description" placeholder="description" cols="30" rows="5"></textarea>
+          <button type="submit">update</button>
+        </form>
+      </section>
+
+      <!-- Admin View -->
+      <section class="admin-view spa">
+        <h2 class="view-title">verify your passphrase</h2>
+        <form id="admin-form">
+          <input type="number" name="passphrase" placeholder="007">
+          <button type="submit">verify</button>
+        </form>
+      </section>
     </main>
     
     <footer>
@@ -65,13 +133,17 @@
     </footer>
   </div>
 
-  <!-- scripts -->
+  <!-- Externald Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
-  <script src="scripts/controllers/routes.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.8.6/page.min.js"></script>
+
+  <!-- Internal Scripts -->
   <script src="scripts/index.js"></script>
   <script src="scripts/models/book.js"></script>
   <script src="scripts/views/bookView.js"></script>
   <script src="scripts/views/errorView.js"></script>
+  <script src="scripts/views/adminView.js"></script>
+  <script src="scripts/views/routes.js"></script>
 </body>
 </html>
