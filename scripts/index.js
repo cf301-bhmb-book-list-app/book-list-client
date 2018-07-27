@@ -15,10 +15,9 @@ var app = app || {};
     apiUrl: module.isProduction ? prodUrl : devUrl
   };
 
-  // Hide/show book
-  // TODO: WHY IS THIS HERE???
+  // SPA hide/show selector
   module.showOnly = (selector) => {
-    $('.container').hide();
+    $('.spa').hide();
     $(selector).show();
   };
 
