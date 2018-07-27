@@ -1,0 +1,16 @@
+/*--- Footer Styles ---*/
+.social {
+  text-align: right;
+  font-size: 28px;
+  color: #fff;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+.social li {
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.social a:link, .social a:visited, .social a:hover, .social a:active {
+  color: #ddd;
+}
