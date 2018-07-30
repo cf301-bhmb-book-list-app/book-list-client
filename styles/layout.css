@@ -10,6 +10,7 @@ header {
   padding: 25px;
   display: flex;
   align-items: center;
+  z-index: 1;
   /* justify-content: center; */
 }
 

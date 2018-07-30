@@ -17,7 +17,7 @@ var app = app || {};
 
   // SPA hide/show selector
   module.showOnly = (selector) => {
-    $('.spa').hide();
+    $('.display').hide();
     $(selector).show();
   };
 
@@ -29,4 +29,8 @@ var app = app || {};
     return module.taskTemplate(data);
   };
 
+  // Dropdown Menu Animation
+  $('.icon-menu').on('click', () => {
+    $('.nav').slideToggle('fast');
+  })
 })(app);
