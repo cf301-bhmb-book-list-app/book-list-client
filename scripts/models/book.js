@@ -8,16 +8,20 @@ var app = app || {};
     module.errorView.initErrorPage(err);
   }
 
+  // Defines the 'Book' object
   function Book(rawBookObj) {
     Object.keys(rawBookObj).forEach(item => this[item] = rawBookObj[item]);
   }
 
-  // Defines a prototype method that renders the Handlebars template
+  // Defines a prototype method for the 'Book' object that renders the Handlebars template
   Book.prototype.toHtml = function() {
-    return app.render('book-list-template', this);
+    return app.render('book-template', this);
   };
 
+  // Create an empty Books array to store all book objects
   Book.all = [];
+
+  // Loads references to every 'Book' object into Book.all
   Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title)
     .map(book => new Book(book));
 
@@ -27,10 +31,6 @@ var app = app || {};
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
-
-  // -----------------------------------------------
-  // TODO: New function... (review 4:22)
-  // code...
 
   module.Book = Book;
 })(app);

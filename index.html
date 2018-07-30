@@ -22,8 +22,8 @@
   <link rel="stylesheet" href="styles/modules/footer.css">
 
   <!-- Book Template -->
-  <script type="text/x-handlebars-template" id="book-list-template">
-    <img src="{{image-file}}" alt="{{title}}" id="bookImage" />
+  <script type="text/x-handlebars-template" id="book-template">
+    <img src="{{image_url}}" alt="{{title}}" class="book-image" />
     <div class="book-content" data-url="{{url}}" data-isbn="{{isbn}}">
       <p class="book-title" id="bookTitle">{{title}}</p>
       <p class="book-author" id="bookAuthor">{{author}}</p>
@@ -32,7 +32,7 @@
 
   <!-- Error Template -->
   <script type="text/x-handlebars-template" id="error-template">
-    <h3>Uh-oh. Something went wrong!</h3>
+    <h3 class="error-message">Check your scripts, Sherlock. Something ain't right.</h3>
     <p>{{status}}: {{statusText}}</p>
   </script>
 
@@ -48,31 +48,31 @@
         <ul>
           <li><a href="/">home</a></li>
           <li class="admin"><a href="/books/new">add book</a></li>
-          <li class="admin"><a href="/books/search">search g-books</a></li>
-          <li><a href="/admin">login</a></li>
+          <!-- <li class="admin"><a href="/books/search">search g-books</a></li> -->
+          <!-- <li><a href="/admin">login</a></li> -->
         </ul>
       </nav>
     </header>
     
     <main>
       <!-- Book View -->
-      <section class="book-view spa">
+      <section class="book-view display">
         <div class="books">
           <h1>My Books</h1>
         </div>
-        <div class="books-api" id="book"></div>
+        <div class="books-api" id="bookDisplay"></div>
       </section>
 
       <!-- Error View -->
-      <section class="error-view spa">
-        <h1>There be an issue, cap'n</h1>
+      <section class="error-view display">
+        <h1>Check your scripts, Sherlock. Something ain't right.</h1>
         <div id="error-message"></div>
       </section>
     
       <!-- Detail View -->
 
       <!-- Search View -->
-      <section class="search-view spa">
+      <section class="search-view display">
         <form id="search-form">
           <input type="text" name="title" placeholder="title">
           <input type="text" name="author" placeholder="author">
@@ -83,14 +83,14 @@
       </section>
 
       <!-- Search Results -->
-      <section class="search-results spa">
+      <section class="search-results display">
         <div>
           <ul id="search-list"></ul>
         </div>
       </section>
 
       <!-- Create View -->
-      <section class="create-view spa">
+      <section class="create-view display">
         <h2 class="view-title">add a new book</h2>
         <form id="create-form">
           <input type="text" name="title" placeholder="title">
@@ -103,7 +103,7 @@
       </section>
 
       <!-- Update View -->
-      <section class="update-view spa">
+      <section class="update-view display">
         <h2 class="view-title">update a book</h2>
         <form id="update-form">
           <input type="text" name="title" placeholder="title">
@@ -116,11 +116,11 @@
       </section>
 
       <!-- Admin View -->
-      <section class="admin-view spa">
-        <h2 class="view-title">verify your passphrase</h2>
+      <section class="admin-view display">
+        <h2 class="view-title">Password?</h2>
         <form id="admin-form">
           <input type="number" name="passphrase" placeholder="007">
-          <button type="submit">verify</button>
+          <button type="submit">Submit</button>
         </form>
       </section>
     </main>
